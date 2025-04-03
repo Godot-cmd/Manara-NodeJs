@@ -1,0 +1,272 @@
+/* RESPONSIVE FORM */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  form label {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+/* RESPONSIVE FOOTER DESIGN */
+@media (max-width: 992px) {
+
+  .nav .links,
+  .nav .phone {
+    display: none;
+  }
+
+  .nav .toggle_btn {
+    display: block;
+  }
+
+  footer .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-middle ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-right ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+
+/* RESPONSIVE DROPDOWN MENU */
+@media (max-width: 576px) {
+  .dropdown_menu {
+    left: 2rem;
+    width: unset;
+  }
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 900px) {
+  .precess-title {
+    font-size: 24px;
+    /* Adjust font size for smaller screens */
+    margin-top: 20px;
+    /* Adjust margin */
+  }
+
+  .steps-container {
+    justify-content: flex-start;
+    /* Align to the start */
+    flex-wrap: nowrap;
+    /* Prevent wrap */
+    overflow-x: auto;
+    /* Allow horizontal scroll */
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    width: auto;
+    /* Auto width to adjust based on content */
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .step {
+    width: 270px;
+    /* Fixed width for smaller screens */
+    height: 160px;
+    /* Fixed height for smaller screens */
+    flex: 0 0 auto;
+    /* Prevent resizing */
+    margin-top: 20px;
+    /* Adjust margin */
+  }
+
+  .step-number {
+    font-size: 18px;
+    /* Adjust step number size */
+    width: 35px;
+    /* Adjust size */
+    height: 35px;
+    /* Adjust size */
+  }
+
+  .step h3 {
+    font-size: 18px;
+    /* Adjust font size for smaller screens */
+  }
+
+  .step p {
+    font-size: 14px;
+    /* Adjust font size for smaller screens */
+  }
+
+  .steps-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar */
+  }
+
+  .steps-container {
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+  }
+}
+
+
+/* ABOUT SECTION */
+
+@media (max-width: 1024px) {
+  .about-section {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+  }
+
+  .about {
+    width: 100%;
+    height: auto;
+    background-size: 100%;
+    padding: 50px 20px;
+    background-position: top center;
+  }
+
+  .experience-section {
+    width: auto;
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .experience-section h1 {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .experience-section .orange-text {
+    font-size: 20px;
+  }
+
+  .inner-section {
+    width: 100%;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .inner-section h5 {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .inner-section .about-title {
+    font-size: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .inner-section .about-info,
+  .inner-section ul,
+  .inner-section ul li {
+    font-size: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .inner-section ul li {
+    margin-bottom: 10px;
+  }
+
+  .inner-section .contact {
+    float: none;
+    margin-top: 15px;
+    text-align: left;
+    float: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    margin-top: 30px;
+  }
+
+  .about {
+    padding: 30px 15px;
+  }
+
+  .experience-section h1 {
+    font-size: 12px;
+  }
+
+  .experience-section .orange-text {
+    font-size: 18px;
+  }
+
+  .inner-section .about-title {
+    font-size: 20px;
+  }
+
+  .inner-section .about-info {
+    font-size: 12px;
+  }
+
+  .inner-section ul li {
+    font-size: 12px;
+  }
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 1200px) {
+  .cards_container {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px;
+    width: 100vw;
+    padding-bottom: 30px;
+  }
+
+  .card {
+    width: 270px;
+    height: 366px;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .cards_container::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .portofoliu-container {
+      padding-top: 100px;  /* Keep padding-top the same for tablets */
+      padding-right: 15px; /* Adjust right padding for tablets */
+      padding-bottom: 15px; /* Adjust bottom padding for tablets */
+      padding-left: 15px;  /* Adjust left padding for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .portofoliu-container {
+      padding-top: 100px;  /* Keep padding-top the same for mobile */
+      padding-right: 10px; /* Adjust right padding for mobile */
+      padding-bottom: 10px; /* Adjust bottom padding for mobile */
+      padding-left: 10px;  /* Adjust left padding for mobile */
+  }
+}

@@ -1,0 +1,170 @@
+<div class="portofoliu-container">
+
+  <!-- Aer Conditionat Section -->
+  <div class="service-section">
+    <div class="service-title">Aer Conditionat</div>
+    <div class="image-gallery">
+      <% if (imagesByService["Aer Conditionat"] && imagesByService["Aer Conditionat"].length > 0) { %>
+        <% imagesByService["Aer Conditionat"].forEach(image => { %>
+          <div class="image-wrapper">
+            <img src="<%= image.url %>" alt="Uploaded Image" class="clickable-image" />
+            <form action="/delete-post/<%= image._id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="delete-btn">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </form>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No images available for Aer Conditionat.</p>
+      <% } %>
+    </div>
+    <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data" class="upload-form">
+      <label class="upload-label">
+        <i class="fas fa-upload"></i>
+        <input type="file" name="profile-files" required multiple hidden />
+      </label>
+      <input type="hidden" name="service" value="Aer Conditionat" />
+      <span class="file-count">No files selected</span>
+      <button type="submit" class="upload-btn">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Instalatii Sanitare Section -->
+  <div class="service-section">
+    <div class="service-title">Instalatii Sanitare</div>
+    <div class="image-gallery">
+      <% if (imagesByService["Instalatii Sanitare"] && imagesByService["Instalatii Sanitare"].length > 0) { %>
+        <% imagesByService["Instalatii Sanitare"].forEach(image => { %>
+          <div class="image-wrapper">
+            <img src="<%= image.url %>" alt="Uploaded Image" class="clickable-image" />
+            <form action="/delete-post/<%= image._id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="delete-btn">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </form>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No images available for Instalatii Sanitare.</p>
+      <% } %>
+    </div>
+    <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data" class="upload-form">
+      <label class="upload-label">
+        <i class="fas fa-upload"></i>
+        <input type="file" name="profile-files" required multiple hidden />
+      </label>
+      <input type="hidden" name="service" value="Instalatii Sanitare" />
+      <span class="file-count">No files selected</span>
+      <button type="submit" class="upload-btn">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Servicii Electrice Section -->
+  <div class="service-section">
+    <div class="service-title">Servicii Electrice</div>
+    <div class="image-gallery">
+      <% if (imagesByService["Servicii Electrice"] && imagesByService["Servicii Electrice"].length > 0) { %>
+        <% imagesByService["Servicii Electrice"].forEach(image => { %>
+          <div class="image-wrapper">
+            <img src="<%= image.url %>" alt="Uploaded Image" class="clickable-image" />
+            <form action="/delete-post/<%= image._id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="delete-btn">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </form>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No images available for Servicii Electrice.</p>
+      <% } %>
+    </div>
+    <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data" class="upload-form">
+      <label class="upload-label">
+        <i class="fas fa-upload"></i>
+        <input type="file" name="profile-files" required multiple hidden />
+      </label>
+      <input type="hidden" name="service" value="Servicii Electrice" />
+      <span class="file-count">No files selected</span>
+      <button type="submit" class="upload-btn">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Zugravit Section -->
+  <div class="service-section">
+    <div class="service-title">Zugravit</div>
+    <div class="image-gallery">
+      <% if (imagesByService["Zugravit"] && imagesByService["Zugravit"].length > 0) { %>
+        <% imagesByService["Zugravit"].forEach(image => { %>
+          <div class="image-wrapper">
+            <img src="<%= image.url %>" alt="Uploaded Image" class="clickable-image" />
+            <form action="/delete-post/<%= image._id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="delete-btn">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </form>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No images available for Zugravit.</p>
+      <% } %>
+    </div>
+    <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data" class="upload-form">
+      <label class="upload-label">
+        <i class="fas fa-upload"></i>
+        <input type="file" name="profile-files" required multiple hidden />
+      </label>
+      <input type="hidden" name="service" value="Zugravit" />
+      <span class="file-count">No files selected</span>
+      <button type="submit" class="upload-btn">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal-container">
+    <span class="close-btn">&times;</span>
+    <img class="modal-image" id="fullImage" />
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll(".clickable-image").forEach((img) => {
+    img.addEventListener("click", function () {
+      document.getElementById("fullImage").src = this.src;
+      document.getElementById("imageModal").style.display = "flex";
+    });
+  });
+
+  document.querySelector(".close-btn").addEventListener("click", function () {
+    document.getElementById("imageModal").style.display = "none";
+  });
+
+  document.getElementById("imageModal").addEventListener("click", function (e) {
+    if (e.target === this) {
+      this.style.display = "none";
+    }
+  });
+
+  document.querySelectorAll("input[type='file']").forEach((input) => {
+  input.addEventListener("change", function () {
+    const fileCount = this.files.length; // Get the number of selected files
+    const fileCountText = fileCount === 0 ? "No files selected" : `${fileCount} file(s) selected`;
+
+    // Update the .file-count span that's within the same form
+    const fileCountSpan = this.closest(".upload-form").querySelector(".file-count");
+    if (fileCountSpan) {
+      fileCountSpan.textContent = fileCountText; // Update the count text
+    }
+  });
+});
+
+</script>
