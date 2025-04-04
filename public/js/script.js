@@ -27,15 +27,6 @@ document.getElementById('action_btn').addEventListener('click', function (e) {
   });
 });
 
-document.querySelectorAll('.scroll-link').forEach(function (link) {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = link.getAttribute('href');
-    document.querySelector(targetId).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
 
 // Get the current year and set it in the footer
 document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -120,17 +111,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  function smoothScroll(targetId) {
+    // Clean the targetId by removing the leading "/#" or "/"
+    const cleanId = targetId.replace(/^\/?#/, "#"); // Remove both leading "/" and "#"
+    const target = document.querySelector(cleanId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 
+  // Handle smooth scrolling on page load if URL contains a hash
+  if (window.location.hash) {
+    setTimeout(() => smoothScroll(window.location.hash), 100);
+  }
 
+  // Add smooth scrolling to all links with class "scroll-link"
+  document.querySelectorAll(".scroll-link").forEach(link => {
+    link.addEventListener("click", function (event) {
+      const rawTargetId = this.getAttribute("href");
 
+      // Clean up the href value, removing "/#" or "/"
+      const targetId = rawTargetId.replace(/^\/?#/, "#");
 
+      if (targetId.startsWith("#")) {
+        event.preventDefault(); // Prevent default jump behavior
 
-
-
-
-
-
-
-
-
-
+        if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+          // If already on the main page, update URL and scroll smoothly
+          history.pushState(null, null, targetId);
+          smoothScroll(targetId);
+        } else {
+          // For other pages, handle the navigation with the hash
+          window.location.href = "/" + targetId;
+        }
+      } else {
+        // If it's a full URL (e.g., /portofoliu), let it behave normally
+        window.location.href = rawTargetId;
+      }
+    });
+  });
+});

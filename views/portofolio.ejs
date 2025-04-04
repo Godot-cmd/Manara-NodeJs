@@ -1,9 +1,9 @@
 <div class="portofoliu-container">
   <!-- Aer Conditionat Section -->
   <div class="service-section">
-    <div class="service-title">Aer Conditionat</div>
-    <div class="image-gallery">
-      <% if (imagesByService["Aer Conditionat"]) { %>
+    <% if (imagesByService["Aer Conditionat"] && imagesByService["Aer Conditionat"].length > 0) { %>
+      <div class="service-title">Aer Conditionat</div>
+      <div class="image-gallery">
         <% imagesByService["Aer Conditionat"].forEach(image => { %>
           <img
             src="<%= image.url %>"
@@ -11,17 +11,15 @@
             class="clickable-image"
           />
         <% }); %>
-      <% } else { %>
-        <p>No images available for Aer Conditionat.</p>
-      <% } %>
-    </div>
+      </div>
+    <% } %>
   </div>
 
   <!-- Instalatii Sanitare Section -->
   <div class="service-section">
-    <div class="service-title">Instalatii Sanitare</div>
-    <div class="image-gallery">
-      <% if (imagesByService["Instalatii Sanitare"]) { %>
+    <% if (imagesByService["Instalatii Sanitare"] && imagesByService["Instalatii Sanitare"].length > 0) { %>
+      <div class="service-title">Instalatii Sanitare</div>
+      <div class="image-gallery">
         <% imagesByService["Instalatii Sanitare"].forEach(image => { %>
           <img
             src="<%= image.url %>"
@@ -29,17 +27,15 @@
             class="clickable-image"
           />
         <% }); %>
-      <% } else { %>
-        <p>No images available for Instalatii Sanitare.</p>
-      <% } %>
-    </div>
+      </div>
+    <% } %>
   </div>
 
   <!-- Servicii Electrice Section -->
   <div class="service-section">
-    <div class="service-title">Servicii Electrice</div>
-    <div class="image-gallery">
-      <% if (imagesByService["Servicii Electrice"]) { %>
+    <% if (imagesByService["Servicii Electrice"] && imagesByService["Servicii Electrice"].length > 0) { %>
+      <div class="service-title">Servicii Electrice</div>
+      <div class="image-gallery">
         <% imagesByService["Servicii Electrice"].forEach(image => { %>
           <img
             src="<%= image.url %>"
@@ -47,17 +43,15 @@
             class="clickable-image"
           />
         <% }); %>
-      <% } else { %>
-        <p>No images available for Servicii Electrice.</p>
-      <% } %>
-    </div>
+      </div>
+    <% } %>
   </div>
 
   <!-- Zugravit Section -->
   <div class="service-section">
-    <div class="service-title">Zugravit</div>
-    <div class="image-gallery">
-      <% if (imagesByService["Zugravit"]) { %>
+    <% if (imagesByService["Zugravit"] && imagesByService["Zugravit"].length > 0) { %>
+      <div class="service-title">Zugravit</div>
+      <div class="image-gallery">
         <% imagesByService["Zugravit"].forEach(image => { %>
           <img
             src="<%= image.url %>"
@@ -65,10 +59,8 @@
             class="clickable-image"
           />
         <% }); %>
-      <% } else { %>
-        <p>No images available for Zugravit.</p>
-      <% } %>
-    </div>
+      </div>
+    <% } %>
   </div>
 </div>
 
@@ -99,3 +91,4 @@
     }
   });
 </script>
+  
