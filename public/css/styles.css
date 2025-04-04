@@ -14,7 +14,10 @@
 
 body {
     font-family: var(--font-family);
+    
+
 }
+
 
 header {
     background: var(--primary-color);
@@ -79,6 +82,7 @@ a:hover {
 .footer-logo-img {
     width: 4.5em;
     height: auto;
+
 
 }
 
@@ -362,11 +366,14 @@ form button:hover {
 }
 
 
+
 /*FOOTER */
 footer {
     background-color: #302e2e;
     color: white;
     padding: 40px;
+    width: 100%;
+     
 }
 
 .footer-container {
@@ -744,6 +751,7 @@ footer {
 
 .portofoliu-container {
     padding: 100px;
+    padding-bottom: 120px; /* Ensure this is greater than or equal to the height of the footer */
     text-align: center;
 
 }
