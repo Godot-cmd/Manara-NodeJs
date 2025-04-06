@@ -10,14 +10,14 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 const session = require("express-session");
 const imageRoutes = require("./server/routes/imageRoutes");
-
+A
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
 connectDB();
 
 app.use(session({
-    secret: 'keyboard-cat',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
@@ -43,7 +43,7 @@ app.use("/", imageRoutes);
 app.use(require("./server/routes/main"));
 app.use(require("./server/routes/admin"));
 
-
-app.listen(PORT, () => {
+console.log('Using port:', PORT);
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
-});
+  });
