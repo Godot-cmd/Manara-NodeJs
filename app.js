@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 const session = require("express-session");
 const imageRoutes = require("./server/routes/imageRoutes");
-A
+
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
