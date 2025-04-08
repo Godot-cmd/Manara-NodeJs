@@ -4,8 +4,6 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
 const connectDB = require("./server/config/db");
-// const connectDB = require("./server/config/db");
-const { json } = require("body-parser");
 const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 const session = require("express-session");
@@ -13,7 +11,7 @@ const imageRoutes = require("./server/routes/imageRoutes");
 
 
 const app = express();
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 connectDB();
 
 app.use(session({
