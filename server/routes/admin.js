@@ -5,7 +5,7 @@ const adminLayout = '../views/layouts/admin';
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET;
-const Images = require("../../models/Images");
+const Images = require("../models/Images");
 const cloudinary = require('cloudinary').v2;
 const methodOverride = require('method-override');
 
@@ -18,11 +18,11 @@ cloudinary.config({
 });
 
 const checkAuthToken = (req, res, next) => {
-    const token = req.cookies.token || req.headers.authorization?.split(" ")[1]; 
+    const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
     if (token) {
         try {
-            const decoded = jwt.verify(token, jwtSecret);  
-            req.userId = decoded.userId;  
+            const decoded = jwt.verify(token, jwtSecret);
+            req.userId = decoded.userId;
             return res.redirect('/dashboard');
         } catch (error) {
             console.log("Invalid or expired token. Proceeding to login.");
@@ -123,12 +123,9 @@ router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
         }
         const cloudinaryResult = await cloudinary.uploader.destroy(publicId);
         if (cloudinaryResult.result !== 'ok') {
-            console.error("Error deleting image from Cloudinary:", cloudinaryResult);
             return res.status(500).json({ error: "Error deleting image from Cloudinary" });
         }
-        console.log("Cloudinary deletion result:", cloudinaryResult);
         await Images.findByIdAndDelete(imageId);
-        console.log("Image successfully deleted from MongoDB");
         res.redirect('/dashboard');
     } catch (err) {
         console.error("Server error:", err);

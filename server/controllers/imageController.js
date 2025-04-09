@@ -1,4 +1,4 @@
-const Image = require("../../models/Images");
+const Image = require("../models/Images");
 const cloudinary = require("cloudinary").v2;
 
 // Fetch images from the database and render them based on the service
@@ -22,7 +22,7 @@ const getImages = async (req, res) => {
 const uploadImages = async (req, res) => {
     try {
         const { service } = req.body; // Get the service name from form
-        
+
         if (!req.files || req.files.length === 0) {
             return res.status(400).json({ message: "No images uploaded!" });
         }

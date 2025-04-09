@@ -4,7 +4,7 @@ const router = express.Router();
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require("multer");
-const Images = require("../../models/Images"); // ✅ Import the model
+const Images = require("../models/Images"); // ✅ Import the model
 const { authMiddleware } = require("./admin"); // ✅ Import auth middleware
 
 // ✅ Configure Cloudinary
@@ -25,12 +25,12 @@ const storage = new CloudinaryStorage({
 });
 
 const upload = multer({ storage: storage });
- 
+
 // ✅ Upload route
 router.post("/profile-upload-multiple", authMiddleware, upload.array("profile-files", 12), async (req, res) => {
     try {
         const { service } = req.body; // Get service from the form
-        
+
         if (!service) {
             return res.status(400).json({ message: "Service type is required!" });
         }
@@ -44,7 +44,7 @@ router.post("/profile-upload-multiple", authMiddleware, upload.array("profile-fi
             filename: file.originalname,
             service: service
         }));
-        
+
         await Images.insertMany(imageDocs); // ✅ Save in MongoDB
 
         res.redirect("/dashboard");
